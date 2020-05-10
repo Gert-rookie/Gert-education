@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * <p>
- * 访问过滤器
+ * 授权过滤器
  * </p>
  *
  * @author qy

@@ -23,10 +23,10 @@ import java.util.List;
  * @author gert
  * @since 2020-02-29
  */
-@Api(value = "课程科目(分类)管理")
+@Api(description="课程科目(分类)管理")
 @RestController
 @RequestMapping("/eduservice/subject")
-@CrossOrigin
+/*@CrossOrigin*/
 public class EduSubjectController {
 
     @Autowired
@@ -41,15 +41,15 @@ public class EduSubjectController {
     public R addSubject(MultipartFile file) {
         //上传过来excel文件
         //考虑到Excel模板中的数据不准确，所以返回多个错误信息，那么多个错误信息放在集合中
-        List<String> mesList = subjectService.importExcel(file);
+        /*List<String> mesList = subjectService.importExcel(file);
 
         if(mesList.size() ==0){
             return R.ok();
         } else {
             return R.ok().data("messageList", mesList);
-        }
-        //subjectService.saveSubject(file,subjectService);
-        //return R.ok();
+        }*/
+        subjectService.saveSubject(file,subjectService);
+        return R.ok();
     }
 
     /**

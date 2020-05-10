@@ -1,4 +1,4 @@
-package com.atguigu.demo;
+package top.fotg.demo;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;

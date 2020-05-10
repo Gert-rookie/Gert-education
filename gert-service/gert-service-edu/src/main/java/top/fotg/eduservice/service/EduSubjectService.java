@@ -43,4 +43,10 @@ public interface EduSubjectService extends IService<EduSubject> {
      */
     boolean saveLevelTwo(EduSubject subject);
 
+    /**
+     * 保存课程分类信息
+     * @param eduSubject
+     * @return
+     */
+    int  saveEduSubject(EduSubject eduSubject);
 }

@@ -21,7 +21,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/eduservice/coursefront")
-@CrossOrigin
+/*@CrossOrigin*/
 public class CourseFrontController {
 
     @Autowired
@@ -52,7 +52,7 @@ public class CourseFrontController {
         List<ChapterVo> chapterVideoList = chapterService.getChapterVideoByCourseId(courseId);
         //根据课程id和用户id查询当前课程是否已经支付过了
         //boolean buyCourse = ordersClient.isBuyCourse(courseId, JwtUtils.getMemberIdByJwtToken(request)); TODO
-        boolean  buyCourse=true;
+        boolean  buyCourse=false;
         return R.ok().data("courseWebVo",courseWebVo).data("chapterVideoList",chapterVideoList).data("isBuy",buyCourse);
     }
 

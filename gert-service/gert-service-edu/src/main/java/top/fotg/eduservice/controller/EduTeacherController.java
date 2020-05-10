@@ -28,7 +28,7 @@ import java.util.List;
 @Api(description="讲师管理")
 @RestController
 @RequestMapping("/eduservice/teacher")
-@CrossOrigin //解决跨域
+/*@CrossOrigin*/ //解决跨域
 //@CrossOrigin
 public class EduTeacherController {
 
@@ -65,6 +65,7 @@ public class EduTeacherController {
     //3 分页查询讲师的方法
     //current 当前页
     //limit 每页记录数
+    @ApiOperation(value = "分页查询讲师")
     @GetMapping("pageTeacher/{current}/{limit}")
     public R pageListTeacher(@PathVariable long current,
                              @PathVariable long limit) {
@@ -97,6 +98,7 @@ public class EduTeacherController {
     /**
      * 条件查询带分页的方法（后台）
      */
+    @ApiOperation(value = "条件查询带分页的方法（后台）")
     @PostMapping("pageTeacherCondition/{current}/{limit}")
     public R pageTeacherCondition(@PathVariable long current,@PathVariable long limit,
                                   @RequestBody(required = false)  TeacherQuery teacherQuery) {
@@ -140,6 +142,7 @@ public class EduTeacherController {
     /**
      *  添加讲师接口的方法（后台）
      */
+    @ApiOperation(value = "添加讲师接口的方法（后台）")
     @PostMapping("addTeacher")
     public R addTeacher(@RequestBody EduTeacher eduTeacher) {
         boolean save = teacherService.save(eduTeacher);
@@ -155,6 +158,7 @@ public class EduTeacherController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "根据讲师id进行查询（后台）")
     @GetMapping("getTeacher/{id}")
     public R getTeacher(@PathVariable String id) {
         EduTeacher eduTeacher = teacherService.getById(id);
@@ -164,6 +168,7 @@ public class EduTeacherController {
     /**
      * 讲师修改功能（后台）
      */
+    @ApiOperation(value = "讲师修改功能（后台）")
     @PostMapping("updateTeacher")
     public R updateTeacher(@RequestBody EduTeacher eduTeacher) {
         boolean flag = teacherService.updateById(eduTeacher);

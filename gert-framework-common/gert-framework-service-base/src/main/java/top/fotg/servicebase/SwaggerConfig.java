@@ -33,7 +33,7 @@ public class SwaggerConfig {
                 .title("网站-课程中心API文档")
                 .description("本文档描述了课程中心微服务接口定义")
                 .version("1.0")
-                .contact(new Contact("java", "http://atguigu.com", "1123@qq.com"))
+                .contact(new Contact("Gert", "www.fotg.top", "1071436942@qq.com"))
                 .build();
     }
 }

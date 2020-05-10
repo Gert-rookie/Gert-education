@@ -47,6 +47,7 @@ public class SubjectExcelListener extends AnalysisEventListener<SubjectData> {
             existTwoSubject.setTitle(subjectData.getTwoSubjectName());//二级分类名称
             subjectService.save(existTwoSubject);
         }
+
     }
 
     //判断一级分类不能重复添加

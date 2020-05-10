@@ -1,4 +1,4 @@
-package com.atguigu.demo.excel;
+package top.fotg.demo.excel;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Data;

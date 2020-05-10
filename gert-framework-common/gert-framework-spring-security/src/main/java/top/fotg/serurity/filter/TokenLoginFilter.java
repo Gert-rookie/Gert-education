@@ -1,5 +1,6 @@
 package top.fotg.serurity.filter;
 
+import lombok.extern.slf4j.Slf4j;
 import top.fotg.utils.R;
 import top.fotg.utils.ResponseUtil;
 import top.fotg.serurity.entity.SecurityUser;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
  * @author qy
  * @since 2019-11-08
  */
+@Slf4j
 public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
 
     private AuthenticationManager authenticationManager;
@@ -48,7 +50,7 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
             throws AuthenticationException {
         try {
             User user = new ObjectMapper().readValue(req.getInputStream(), User.class);
-
+           logger.info(user.getUsername());
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), new ArrayList<>()));
         } catch (IOException e) {
             throw new RuntimeException(e);

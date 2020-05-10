@@ -24,7 +24,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/acl/role")
-@CrossOrigin
+/*@CrossOrigin*/
 public class RoleController {
 
     @Autowired
@@ -63,21 +63,21 @@ public class RoleController {
     }
 
     @ApiOperation(value = "修改角色")
-    @PutMapping("update")
+    @PostMapping("update")
     public R updateById(@RequestBody Role role) {
         roleService.updateById(role);
         return R.ok();
     }
 
     @ApiOperation(value = "删除角色")
-    @DeleteMapping("remove/{id}")
+    @PostMapping("remove/{id}")
     public R remove(@PathVariable String id) {
         roleService.removeById(id);
         return R.ok();
     }
 
     @ApiOperation(value = "根据id列表删除角色")
-    @DeleteMapping("batchRemove")
+    @PostMapping("batchRemove")
     public R batchRemove(@RequestBody List<String> idList) {
         roleService.removeByIds(idList);
         return R.ok();

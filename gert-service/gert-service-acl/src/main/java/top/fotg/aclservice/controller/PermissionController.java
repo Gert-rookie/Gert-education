@@ -20,7 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/acl/permission")
-@CrossOrigin
+/*@CrossOrigin*/
 public class PermissionController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class PermissionController {
     }
 
     @ApiOperation(value = "递归删除菜单")
-    @DeleteMapping("remove/{id}")
+    @PostMapping("remove/{id}")
     public R remove(@PathVariable String id) {
         permissionService.removeChildById(id);
         return R.ok();
@@ -65,7 +65,7 @@ public class PermissionController {
     }
 
     @ApiOperation(value = "修改菜单")
-    @PutMapping("update")
+    @PostMapping("update")
     public R updateById(@RequestBody Permission permission) {
         permissionService.updateById(permission);
         return R.ok();

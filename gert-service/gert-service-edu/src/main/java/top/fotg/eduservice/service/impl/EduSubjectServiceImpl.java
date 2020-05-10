@@ -6,6 +6,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import top.fotg.eduservice.entity.EduSubject;
 import top.fotg.eduservice.entity.excel.SubjectData;
@@ -35,6 +36,10 @@ import java.util.List;
  */
 @Service
 public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubject> implements EduSubjectService {
+
+    @Autowired
+    private EduSubjectMapper eduSubjectMapper;
+
 
     //添加课程分类
     @Override
@@ -193,9 +198,9 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
     public boolean saveLevelOne(EduSubject subject) {
 
         EduSubject subjectLevelOne = this.selectSubjectByName(subject.getTitle());
-
+        subject.setParentId("0");
         if(subjectLevelOne == null){
-            return super.save(subject);
+            return    super.save(subject);
         }
 
         return false;
@@ -211,6 +216,16 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
         }
         int insert = baseMapper.insert(subject);
         return insert == 1;
+    }
+
+    /**
+     * 保存课程分类信息
+     * @param eduSubject
+     * @return
+     */
+    @Override
+    public int saveEduSubject(EduSubject eduSubject) {
+        return eduSubjectMapper.saveEduSubject(eduSubject);
     }
 
     /**

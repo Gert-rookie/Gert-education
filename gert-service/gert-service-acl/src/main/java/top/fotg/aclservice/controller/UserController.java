@@ -28,7 +28,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin/acl/user")
-@CrossOrigin
+/*@CrossOrigin*/
 public class UserController {
 
     @Autowired
@@ -65,23 +65,29 @@ public class UserController {
         userService.save(user);
         return R.ok();
     }
+    @ApiOperation(value = "根据id获取用户信息")
+    @GetMapping("get/{id}")
+    public R save(@PathVariable String id) {
+       User  user= userService.getById(id);
+        return R.ok().data("user",user);
+    }
 
     @ApiOperation(value = "修改管理用户")
-    @PutMapping("update")
+    @PostMapping("update")
     public R updateById(@RequestBody User user) {
         userService.updateById(user);
         return R.ok();
     }
 
     @ApiOperation(value = "删除管理用户")
-    @DeleteMapping("remove/{id}")
+    @PostMapping("remove/{id}")
     public R remove(@PathVariable String id) {
         userService.removeById(id);
         return R.ok();
     }
 
     @ApiOperation(value = "根据id列表删除管理用户")
-    @DeleteMapping("batchRemove")
+    @PostMapping("batchRemove")
     public R batchRemove(@RequestBody List<String> idList) {
         userService.removeByIds(idList);
         return R.ok();
@@ -100,5 +106,7 @@ public class UserController {
         roleService.saveUserRoleRealtionShip(userId,roleId);
         return R.ok();
     }
+
+
 }
 
