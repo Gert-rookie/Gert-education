@@ -14,5 +14,5 @@
 
 &emsp;&emsp;DevOps是一组流程、方法和系统的合称，用于促进开发（应用/软件工程），技术运营和质量保证(QA)部门之间的沟通，协作和集成。 该系统提供了许多开发、运营、维护支撑的系统， 包括: Nacos服务管理中心:服务管理服务，包括:服务注册，服务消费等。Spring Cloud Config服务配置管理中心:提供服务配置管理服务，包括:配置文件更新，配置文件分发。 Hystrix Dashboard服务（保险丝监控）:监控保险丝请求响应时间，成功率等。Zipkin服务跟踪监控:监控服务呼叫链路的健康状况。 Jenkins持续集成服务:提供持续系统集成服务。 Git/Github代码管理服务:提供Git代码管理服务。 Docker容器部署服务:此系统中的所有服务都部署在容器中。 Maven项目管理工具:提供管理项目，项目打包服务的所有Java包依赖项。
 
-![img](file:///C:/Users/jake/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
+![img](https://raw.githubusercontent.com/Gert-rookie/Gert-education/master/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png)
 
